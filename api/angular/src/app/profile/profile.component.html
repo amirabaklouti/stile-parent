@@ -1,0 +1,196 @@
+<ion-content class="bg">
+<div>
+    <ion-row class="header mt-4 mb-4 align-items-center">
+        <ion-col size="2" class="d-flex justify-content-end">
+          <ion-icon name="chevron-back-outline" (click)="backClicked()"></ion-icon>
+        </ion-col>
+        <ion-col size="8" class="d-flex justify-content-center">
+          <p class="title">Profile</p>
+        </ion-col>
+        <ion-col size="2" class="cart d-flex justify-content-start">
+        </ion-col>
+      </ion-row>
+
+  <ion-card mode="ios">
+      <ion-row>
+        <ion-col size="4" class="p-0">
+         <!--<img *ngIf="ProfileImgBase64" (click)="takePicture()" class="ProfileImg" id="open-modal" src="{{ProfileImgBase64}}">--> 
+        <div class="ImgContaire">
+         <img  (click)="takePicture()" class="ProfileImg" id="open-modal" src="{{imgUri ? imgUri : '../../assets/defaultImg.png'}}">
+           <div class="modifyImg"><ion-icon class="modifyImgIcon" name="add-outline"></ion-icon></div>
+        </div>
+   </ion-col>
+        <ion-col size="5" class="ProfileName d-flex justify-content-start">
+          <p class="ProfileName">{{username}}</p>
+        </ion-col>
+        <ion-col  size="3" class=" options d-flex justify-content-center align-items-center">
+          <img (click)="modifyMode()" *ngIf="!modify" class="ProfileIcon" src="../../assets/editProfile.svg">
+          <img (click)="modifyMode()" *ngIf="modify" class="ProfileIcon" src="../../assets/editClicked.svg">
+        </ion-col>
+       
+      </ion-row> 
+  </ion-card>
+
+
+
+  <img  class="bar" src="../../assets/bar.svg">
+
+
+<!--    <ion-item-sliding>
+      <ion-item-options side="start">
+        <ion-item-option (click)="favorite(item)">Favorite</ion-item-option>
+        <ion-item-option color="danger" (click)="share(item)">Share</ion-item-option>
+      </ion-item-options>
+  
+      <ion-item>
+        <ion-label>Item Options</ion-label>
+      </ion-item>
+    </ion-item-sliding>-->
+   <!-- <ion-row>
+      <ion-label class="details-header">General Information</ion-label>
+    </ion-row>-->
+
+   
+    <ion-row class="details">
+     
+        <ion-icon class="m-2" name="call-outline"></ion-icon>
+      <ion-input de="ios"  [(ngModel)]=phone [disabled]=!modify  placeholder="{{phone || 'Phone' }}" ></ion-input>
+  
+    </ion-row> 
+ <!--   <ion-row class="details">
+      <ion-icon class="m-2" name="person-outline"></ion-icon>
+      <ion-input de="ios"   placeholder={{username}}></ion-input>
+    
+    </ion-row> -->
+
+    <ion-row class="details">
+      <ion-icon class="m-2" name="at-outline"></ion-icon>
+      <ion-input de="ios"  [(ngModel)]=email  [disabled]=!modify  placeholder="{{email || 'Email' }}"></ion-input>
+   
+    </ion-row> 
+
+    <ion-row class="details">
+      <ion-icon class="m-2" name="calendar-outline"></ion-icon>
+        <ion-input mode="ios" [disabled]=!modify displayFormat="YYYY-MM-DD"  [(ngModel)]="birthDate" type="date"></ion-input>
+    </ion-row> 
+
+    <ion-row class=" details gender">
+      <ion-icon  class="m-2" name="male-female-outline"></ion-icon>
+      <ion-col class="h-100">
+        <ion-segment  [disabled]=!modify  class="h-100"  mode="ios" [(ngModel)]=gender value={{gender}}>
+          <ion-segment-button value="Male">
+            Male  
+          </ion-segment-button>
+          <ion-segment-button value="Female">
+            Female
+          </ion-segment-button>
+        </ion-segment>
+      </ion-col>
+    </ion-row> 
+
+    <ion-button (click)="modidyUserDetails()" *ngIf="modify" class="green-button saveChangesBtn mb-2" mode="ios">Save changes</ion-button>
+
+    <img  class="bar" src="../../assets/bar.svg">
+
+    <ion-row class="details">
+      <ion-icon  class="m-2" name="logo-facebook"></ion-icon>
+      <div>Connect with Facebook</div>
+    </ion-row> 
+
+
+    <ion-row class="details">
+      <ion-icon  class="m-2" name="logo-instagram"></ion-icon>
+      <div>Connect with Instagram</div>
+    </ion-row>
+
+   <!--   <ion-row>
+      <ion-label class="details-header">General Picture</ion-label>
+    </ion-row>
+    <ion-card class="add-picture">
+      <div class="img-default-container">
+      <img class="input" *ngIf="!url" src="../../assets/wardrobe.svg"/>
+      <img [src]="url" *ngIf="url" class="input">
+    </div>->
+      <ion-card-content class="w-100">
+     <!--   <ion-row class="btn-images">
+          <ion-col size="6">
+            <label class="custom-file-upload">
+              <input type="file" (change)="selectFile($event)" accept="image/*">
+            <p class="img-label">Take a Picture</p>  
+            </label>   
+          </ion-col>
+          <ion-col size="6">
+        <label class="custom-file-upload">
+            <input type="file" (change)="selectFile($event)" accept="image/*">
+            <p class="img-label">Select Image</p>  
+            
+          </label>
+          </ion-col>
+        </ion-row>-->
+   <!--    <ion-row>
+        <ion-button mode="ios" type="submit" class="submitButton" (click)="presentModal('../../assets/wardrobe.svg')">
+          Change Picture
+        </ion-button>
+      </ion-row>
+      </ion-card-content>
+    </ion-card>-->
+
+
+  <!--    <ion-accordion-group>
+      <ion-accordion  value="color" inset="true">
+        <ion-item lines="none" slot="header">
+          <ion-row>
+            <ion-label class="details-list">Change Password</ion-label>
+          </ion-row>
+        </ion-item>
+        <span slot="content">
+          <ion-row class="details-password">
+            <ion-col size="12">
+            <ion-input de="ios" placeholder="Current Password"></ion-input>
+          </ion-col>
+          </ion-row> 
+          <ion-row class="details-password">
+            <ion-col size="12">
+            <ion-input de="ios"   placeholder="New Password"></ion-input>
+          </ion-col>
+          </ion-row> 
+          <ion-row class="details-password">
+            <ion-col size="12">
+            <ion-input de="ios"   placeholder="New Password"></ion-input>
+          </ion-col>
+          </ion-row> 
+      
+        </span>
+      </ion-accordion>
+    </ion-accordion-group>
+
+    <ion-accordion-group>
+      <ion-accordion  value="color" inset="true">
+        <ion-item lines="none" slot="header">
+          <ion-row>
+            <ion-label class="details-list">Change Password</ion-label>
+          </ion-row>
+        </ion-item>
+        <span slot="content">
+          <ion-row class="details-password">
+            <ion-col size="12">
+            <ion-input de="ios" placeholder="Current Password"></ion-input>
+          </ion-col>
+          </ion-row> 
+          <ion-row class="details-password">
+            <ion-col size="12">
+            <ion-input de="ios"   placeholder="New Password"></ion-input>
+          </ion-col>
+          </ion-row> 
+          <ion-row class="details-password">
+            <ion-col size="12">
+            <ion-input de="ios"   placeholder="New Password"></ion-input>
+          </ion-col>
+          </ion-row> 
+      
+        </span>
+      </ion-accordion>
+    </ion-accordion-group>-->
+  </div>
+</ion-content>
+<app-menubar></app-menubar>

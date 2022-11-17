@@ -1,0 +1,23 @@
+.tryImg{
+ //   width: 58%; 
+ //   margin-bottom: 5%;
+ animation: animate 0.5s;
+}
+
+
+.header{
+
+    .backArrow{
+       display: flex;
+       align-items: center;
+       padding-left: 10%;
+       justify-content: flex-start;
+    }
+    .cart{
+       display: flex;
+       justify-content: flex-start;
+    }
+ } 
+ .return-btn{
+    display: block;
+ }

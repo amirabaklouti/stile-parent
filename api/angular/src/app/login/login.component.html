@@ -1,0 +1,46 @@
+<ion-content>
+    <div class="pageTitle">
+        <span class="welcome">Welcome&nbsp;</span>
+        <span class="welcome2">back!</span>
+      </div>
+    <div>
+      <form [formGroup]="form" class="form">
+
+        <ion-row lines="none" class="LoginDetails">
+          <ion-col size="2" class="icons">
+            <img src='../assets/Profile.svg' >
+        </ion-col>
+        <ion-col size="10">
+          <ion-input mode="ios" [(ngModel)]=usernameValue  formControlName="username" id="usernameId" type='text' placeholder="Username"
+            class="p-0 ">
+          </ion-input>
+        </ion-col>     
+        </ion-row>
+
+        <ion-row lines="none" class="LoginDetails">
+          <ion-col size="2" class="icons">
+            <img src='../assets/Lock.svg' >
+        </ion-col>
+        <ion-col size="10">
+          <ion-input mode="ios" [(ngModel)]=passwordValue  formControlName="password" id="passwordId" type='password' placeholder="Password"
+            class="p-0 ">
+          </ion-input>
+        </ion-col>     
+        </ion-row>
+   
+        <div>
+          <div class="forgotPassword">Forgot
+            your
+            password?</div>
+        </div>
+        <ion-button mode="ios" (click)="onSubmit()" type="submit" expand="block" class="LoginButton">
+          Log in</ion-button>
+      </form>
+    </div>
+
+    <div class="bottomCaption">
+      <span class="caption1">New user?&nbsp; </span>
+      <span class="greenCaption1" (click)="Signup()">Sign up</span>
+    </div>
+
+</ion-content>

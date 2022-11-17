@@ -1,0 +1,45 @@
+<ion-content fullscreen>
+  <div class="pageLayoutStandard">
+
+     <!-- <app-header></app-header> -->
+    <div class="center-element">
+      <img [src]="detected" class="image">
+    </div>
+    <div class="center-element-5-top">
+      <h2>Search for</h2>
+    </div>
+
+
+    <ion-radio-group>
+      <ion-grid>
+        
+          <ion-row  *ngFor="let e of tab">
+            <ion-card>
+            <ion-row>
+            <ion-col class="center-element">
+              <img class="detectedClothImg" [src]="e.imgUri">
+            </ion-col>
+            <ion-col class="details">
+              <label class="center-element-green">{{e.type}}</label>
+              <p class="center-element">{{e.color}}</p>
+            </ion-col>
+            <ion-col class="center-element">
+              <ion-item lines="none">
+                <ion-radio slot="end" class="radioButton" (click)="radioGroupChange(e.type,e.color)"></ion-radio>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          </ion-card>
+          </ion-row>
+        
+      </ion-grid>
+    </ion-radio-group>
+
+    <div class="center-element">
+      <ion-button type="submit" class="submitButton" (click)="onSubmit()">
+        Submit
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
+<app-menubar></app-menubar>

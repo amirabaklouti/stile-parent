@@ -1,0 +1,53 @@
+<ion-card mode="ios" class="cloth-item">
+
+    <ion-row class="stat" *ngIf="router.url !== '/collection' && router.url !== '/outfits' ">
+      <ion-col size="4">
+        <div *ngIf="item.discount" class="center-element">
+          <p class="discountColor">-{{item.discount}}%</p>
+        </div>
+      </ion-col>
+   <ion-col size="4">
+     <!--    <div *ngIf="item==bestReview && item!=bestPrice">
+          <p class="bestReview">Best Review!</p>
+        </div>
+        <div *ngIf="item==bestPrice && item!=bestReview">
+          <p class="bestPrice">Best Price!</p>
+        </div> --> 
+      </ion-col>
+      <ion-col size="4" class="center-element">
+        <button class="favorite" (click)="favoriteStatusChange(item)">
+          <div *ngIf="!fav">
+            <img src="../../assets/Heart.svg" class="btns">
+          </div>
+          <div *ngIf="fav">
+            <img src="../../assets/HeartPressed.svg" class="btns">
+          </div>
+        </button>
+      </ion-col>
+    </ion-row>
+
+  <div class="img-container">
+    <img src="{{item.imgUri ? item.imgUri : '../../assets/loading.gif' }}" class="clothImg" (click)="ProductModal(item)">
+  </div>
+
+ <!-- <ion-card-content class="margin-top-min-10">
+    <p style="white-space:nowrap; text-align:center;">{{item.name}}</p>
+    <h5 class="center-element">{{item.price}} USD </h5>
+    <h2 class="center-element-green" *ngIf="item.quantity!=0"> {{item.quantity}} in stock! </h2>
+    <h2 class="center-element-red" *ngIf="item.quantity==0"> Out of stock! </h2>
+    <div class="clothRating">
+      <ion-icon name="star" class="goldColor"></ion-icon> {{item.totalStars}} ({{item.reviewCount}}k
+      review)
+    </div>
+  </ion-card-content>-->
+  <ion-card-content class="pt-1 pb-2" >
+    <p class="ProductName" *ngIf="router.url !== '/outfits'" >{{item.name}}</p>
+    <h5 class="ProductPrice" *ngIf="router.url !== '/collection' && router.url !== '/outfits' " >{{item.price}} USD </h5>
+    <!-- <h2 class="center-element-green" *ngIf="item.quantity!=0"> {{item.quantity}} in stock! </h2>
+    <h2 class="center-element-red" *ngIf="item.quantity==0"> Out of stock! </h2>-->
+    <div class="clothRating" *ngIf="router.url !== '/outfits'">
+      <img src="../../assets/starBlack.svg" class="rateSVG"> <p class="rateText">&nbsp;{{item.totalStars}}&nbsp;({{item.reviewCount}}k</p> 
+      &nbsp;review)
+    </div>
+  </ion-card-content>
+</ion-card>

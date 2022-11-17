@@ -1,0 +1,214 @@
+<ion-content>
+  <ion-row class="header mt-4 align-items-center">
+    <ion-col size="7" class="backArrow">
+      <ion-icon name="chevron-back-outline" (click)="dismiss()"></ion-icon>
+    </ion-col>
+    <ion-col size="1" class="share p-0">
+      <ion-icon name="share-social-outline"></ion-icon>
+    </ion-col>
+    <ion-col size="2" class="cart p-0">
+      <div class="center-element">
+        <button ion-button class="favoriteIcon align-items-center" (click)="favoriteStatusChange(cloth)">
+          <div *ngIf="!fav">
+            <img src="../../assets/Heart.svg" class="btns">
+          </div>
+          <div *ngIf="fav">
+            <img src="../../assets/HeartPressed.svg" class="btns">
+          </div>
+        </button>
+      </div>
+    </ion-col>
+
+    <ion-col size="2" class="buy p-0">
+      <div class="center-element">
+      <button ion-button class="favoriteIcon " (click)="addItemToCart(cloth)">
+        <div  *ngIf="!inCart">
+          <img width="14px" height="14px" src="../../assets/Buy.svg"  class="btns">
+        </div>
+        <div  *ngIf="inCart">
+          <img  src="../../assets/inCart.svg"  class="btns">
+        </div>
+      </button>
+    </div>
+    </ion-col>
+  </ion-row>
+
+  
+    <!--   <img src="../../assets/Ellipse.svg" class="ellipse"> -->
+    <div class="center-element imgs-container" *ngIf="frontImgs">
+      <ion-slides mode='ios' pager="true" [options]="slideOptsFront" >
+        <ion-slide>
+        
+          <img src="{{cloth.imgUri ? cloth.imgUri : '../../assets/loading.gif' }}" (click)="presentModal(cloth)">
+        </ion-slide>
+        <ion-slide>
+         
+          <img src="{{cloth.imgUri ? cloth.imgUri : '../../assets/loading.gif' }}" (click)="presentModal(cloth)">
+        </ion-slide>
+        <ion-slide>
+    
+          <img src="{{cloth.imgUri ? cloth.imgUri : '../../assets/loading.gif' }}"  (click)="presentModal(cloth)">
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+    <div class="center-element imgs-container"  *ngIf="!frontImgs">
+      <ion-slides mode='ios' pager="true" [options]="slideOptsBack" >
+        <ion-slide>
+  
+          <img src="{{cloth.imgUri ? cloth.imgUri : '../../assets/loading.gif' }}"  (click)="presentModal(cloth)">
+        </ion-slide>
+        <ion-slide>
+   
+          <img src="{{cloth.imgUri ? cloth.imgUri : '../../assets/loading.gif' }}"  (click)="presentModal(cloth)">
+        </ion-slide>
+      </ion-slides>
+    </div>
+
+  
+  <ion-row class="thumbnail-btns">
+    <img (click)="FrontImages()" class="thumbnail" src="{{cloth.imgUri ? cloth.imgUri : '../../assets/loading.gif' }}">
+    <img (click)="BackImages()" class="thumbnail" src="{{cloth.imgUri ? cloth.imgUri : '../../assets/loading.gif' }}">
+  </ion-row>
+
+  <div class="contentPage">
+    <ion-row class="mt-2">
+      <ion-col size="8" class="d-flex justify-content-start align-items-center ">
+        <p class="clothName">{{cloth.name}}</p>
+      </ion-col>
+      <ion-col size="2" class="justify-content-center">
+        <div *ngIf="cloth.discount" class="discount">
+          <p class="discountLabel">-{{cloth.discount}}%</p>
+        </div>
+      </ion-col>
+      <ion-col size="2" class="justify-content-center">
+  
+      </ion-col>
+    </ion-row>
+
+ 
+
+
+    <ion-row class="d-flex align-items-cente ">
+      <ion-col size="4" class="align-items-center">
+        <p class="price">{{cloth.price}} USD</p>
+      </ion-col>
+      <ion-col size="8" class="brand">
+        <p>{{cloth.brand.name}}</p>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row class="clothReview">
+
+      <span *ngFor="let i of [0,1,2,3,4]">
+        <img class="star" src="../../assets/ratingStar.svg">
+      </span>
+      <span class="reviwLabel"> {{cloth.totalStars}} ({{cloth.reviewCount}}k Review) </span>
+    </ion-row>
+
+    <div *ngIf="cloth.specialFeatures.length">
+      <div class="hr"></div>
+    <ion-label class="label">Special Features</ion-label>
+    <div class="hr"></div>
+    <div scrollY="true" class="chip-container">
+      <div class="margin-chips" *ngFor="let feature of cloth.specialFeatures">
+        <div class="chip" >
+            <img class="chip-img" src="{{feature.imgUri}}">
+            <div class="chip-text">{{feature.name}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="hr3"></div>
+  </div>
+
+
+      <ion-accordion-group mode="ios">
+        <ion-accordion value="general">
+          <ion-item slot="header">
+            <ion-label class="label2">General</ion-label>
+          </ion-item>
+          <ion-list slot="content">
+            <ion-item>
+              <div class="row">
+                <div class="col-6">
+                  <p class="greenCaption1"> Shop name: </p>
+                </div>
+                <div class="col-6">
+                  <p>{{cloth.shop.name}}</p>
+                </div>
+              </div>
+            </ion-item>
+            <ion-item lines="none">
+              <p class="greenCaption1"> Shop address: </p>
+              <p> {{cloth.shop.address}}</p>
+            </ion-item>
+          </ion-list>
+        </ion-accordion>
+     
+      </ion-accordion-group> 
+     
+      <div class="hr2"></div>
+   
+      <ion-accordion-group>
+        <ion-accordion value="general">
+          <ion-item slot="header">
+            <ion-label class="label2">Launch</ion-label>
+          </ion-item>
+          <ion-list slot="content">
+            <ion-item>
+              <div class="row">
+                <div class="col-6">
+                  <p class="greenCaption1"> Lorem ipsum </p>
+                </div>
+                <div class="col-6">
+                  <p>Lorem ipsum </p>
+                </div>
+              </div>
+            </ion-item>
+            <ion-item lines="none">
+              <p class="greenCaption1">Lorem ipsum : </p>
+              <p>Lorem ipsum </p>
+            </ion-item>
+          </ion-list>
+        </ion-accordion>
+
+      </ion-accordion-group> 
+   
+      <div class="hr2"></div>
+    <div>
+      <div class="center-element" *ngIf="similarClothes.length!=0">
+        <ion-item lines="none">
+          <p class="similarClothesLabel">Similar Products</p>
+        </ion-item>
+      </div>
+      <ion-slides [options]="slideOpts2" class="slides">
+        <ion-slide  *ngFor='let item of similarClothes' class="similarClothes">
+          <app-cloth-card class="cloth-cards" [item]="item"></app-cloth-card>
+        </ion-slide>
+        <ion-slide>
+        
+        </ion-slide>
+      </ion-slides>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar class="center-button">
+    <ion-row>
+      <ion-col size="3">
+        <ion-button mode="ios" class="tryButton" (click)="TryClothModal(cloth)">Try</ion-button>
+      </ion-col>
+      <ion-col size="7">
+        <ion-button mode="ios" class="tryButton"   (click)="addItem(cloth.id)" (click)="presentAddToCollection(cloth)">{{addremove}}</ion-button>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button mode="ios" class="tryButton"  (click)="dismiss()"> <img src="../../assets/buyWhite.svg" routerLink="/cart"></ion-button>
+       
+     <!--  <ion-button mode="ios" class="tryButton" (click)="TryClothModal(cloth)">Add To Cart</ion-button>--> 
+      </ion-col>
+    </ion-row>
+   
+    
+  </ion-toolbar>
+</ion-footer>

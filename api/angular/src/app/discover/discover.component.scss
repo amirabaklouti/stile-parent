@@ -1,0 +1,25 @@
+.card{
+    margin: 10px;
+    border: none;
+}
+.nameContainer{
+    --padding-start : 10px !important;
+    .username{
+        margin-left: 10px;
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 22px;
+      }
+}
+
+ion-button{
+    width: -webkit-fill-available;
+    --border-radius: 0 !important;
+    margin: 0;
+    --background: #006466db;
+}

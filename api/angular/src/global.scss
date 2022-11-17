@@ -1,0 +1,678 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$app-primary: mat.define-palette(mat.$indigo-palette);
+$app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$app-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+
+
+  $app-theme: mat.define-light-theme((
+      color: (
+        primary: $app-primary,
+       accent: $app-accent,
+        warn: $app-warn,
+  )
+));
+
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($app-theme);
+
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+/* CSS fonts*/
+@import "./theme/opensans.scss";
+
+/* Colors */
+$stile-red:red;
+$stile-violet: #3F3356;
+$stile-brown:#414138;
+$stile-green: #006466;
+$stile-yellow:#F2C94C;
+$stile-gold:#daa520;
+$stile-dark-gray:#545454;
+$stile-medium-gray:#828282;
+$stile-ash-gray:#b3b3b3;
+$stile-light-gray: #F5F6F7;
+$stile-gray-white:#ECE9F1;
+
+.scroll-y{
+    color: #000 !important;
+}
+.greenIcon{
+    color: $stile-green;
+}
+
+.category{
+ //   position: relative;
+ //   margin-left: 15%;
+//    top: 47px;
+//    width: 24px;
+//    height: 24px;
+}
+.profile{
+  //  position: absolute;
+//    width: 49px;
+//    height: 58px;
+//    left: 64px;
+//    top: 33px;
+  //    width: 50px;
+ //     height: 55px;
+}
+
+.native-input.sc-ion-input-md:-webkit-autofill{
+    -webkit-box-shadow: 0px 0px 20px 1000px white inset; 
+    padding: 0;
+}
+
+.green-button{
+    --background:#006466;
+    --background-activated:#006466
+}
+.gray-button{
+    border-radius: 10px;
+    border: 2px #2125296e solid;
+   // border: 1px #212529 solid;
+    color: #212529;
+    --background: #ffffff;
+    --background-activated: #ffffff;
+}
+.blackSquare{
+    width: 50px;
+    height: 50px;
+    --ion-color-fav:black;
+    --background:var(--ion-color-fav);
+    --background-activated:var(--ion-color-fav);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.07);
+    --border-radius: 7px;
+}
+.clothSelectTitle{
+    margin-top:-5%;
+}
+
+
+.btncolor{
+    --background:#414138;
+    --background-activated:#414138;
+}
+
+.caption1{
+    color: #8b97ab;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 22px;
+
+}
+.greenCaption1{
+    color:$stile-green;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 22px;
+}
+.heading1{
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 41px;
+}
+.heading2{
+    font-weight:700 bold;
+    size:22px; 
+    font-family:"Open Sans"; 
+    line-height: 28px;
+    font-style: normal;
+}
+.heading3{
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 22px;
+}
+.heading4{
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+}
+//.greenHeading1{
+//    font-family: "Open Sans";
+//    font-style: normal;
+//    font-weight: 600;
+//    font-size: 34px;
+//    line-height: 41px;
+//    color: $stile-green;
+//}
+//.searchbar{
+ //   margin-left: 14%;
+ //   transform: scale(1.35);
+//    width: 235px;
+//}
+.sc-ion-searchbar-ios {
+    height: 50px !important;
+}
+ion-searchbar{
+
+    --icon-color: #828282;
+    --color: #828282;
+    --padding: 0 !important;
+   // --box-shadow: 0px 8px 20px 0px rgb(0 0 0 / 6%) !important;
+   --box-shadow: none !important;
+    --border: none !important;
+    --border-radius: 7px;
+
+}
+p{
+    margin-bottom: 0px !important;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+}
+.margin-left-1{
+    margin-left:1%;
+}
+.margin-left-10{
+    margin-left:1%;
+}
+/*ion-tab-bar {
+
+    border-radius: 30px 30px 0px 0px;
+    width: 100%;
+    bottom:0;
+    position:fixed;
+    overflow-y:scroll;
+    overflow-x:hidden;
+
+  }*/
+
+.pageName{
+ //   top:42px;
+    font-size: 24px;
+    display:flex;
+     align-items: center;
+     justify-content: center;
+}
+.blackCategory{
+ //   position: relative;
+ //   margin-left: 15%;
+ //   top:42px;
+ width: 20px;
+ height: 20px
+}
+
+
+.goldNotification{
+  //  position:absolute; 
+ //   transform: scale(1.5); 
+ //   margin-top:50px;
+ //   margin-left:35px;
+    color: $stile-gold;
+}
+
+.filter{
+    --height: 56%;
+ // height: 16px;
+ // width: 16px;
+    align-items: flex-end;
+    --border-radius: 20px 20px 0px 0px;
+  
+}
+ion-range{
+    --bar-background-active: #006466;
+    padding-top: 0px;
+    padding-bottom: 0px;
+ }
+
+ .discountColor{
+     background-color:$stile-green;
+      color:white;
+      border-radius: 5px; font-size: 11px;
+      padding: 4px 5px;
+ }
+
+.favorited{
+    transform: scale(1.2); background-color:#006466; padding: 3px; border-radius: 50%;
+}
+.hr {
+    height: 2px !important;
+    width: 100% !important;
+    background: #ECE9F1 !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  .hr2{
+    height: 2px !important;
+    width: 100% !important;
+    background: #ECE9F1 !important;
+  }
+  .hr3{
+    height: 2px !important;
+    width: 100% !important;
+    background: #ECE9F1 !important;
+    margin-top: 10px;
+  }
+
+
+.dismissButton{
+    transform: scale(1.5);
+    margin-top: 2%;
+}
+
+.favorite{
+ //   position: relative;
+ //   left:30%;
+//    top:-10%;
+//    border-radius: 70%;
+ //   padding-left: 7px;
+//    padding-top: 7px;
+ //   padding-bottom: 5px;
+    background: none;
+
+}
+.favorated{
+    transform: scale(1.2); 
+    background-color:$stile-green; 
+    padding: 3px; 
+    border-radius: 50%;
+}
+.card-content-ios{
+padding: 0;
+}
+
+//.clothImg{
+ //    margin-top:-10%;
+ //    width: 95%;
+ //    height: 100%;    
+// }
+ .heart-outline{
+    transform: scale(1.2); padding: 3px;
+ }
+ .margin-top-min-10{
+    margin-top: -10%;
+ }
+ .margin-top-min-15{
+    margin-top: -15%;
+ }
+ .center-element{
+     display:flex;
+     align-items: center;
+     justify-content: center;
+ }
+ .center-element-green{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color: #006466;
+}
+.box{
+    width:20px;
+    height:20px;
+    border:1px solid rgb(58, 58, 58);
+}
+
+.center-element-red{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+}
+ .center-element-5-top{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+// .center-element-15-top{
+//    margin-top: 15%;
+//    display:flex;
+//    align-items: center;
+//    justify-content: center;
+// }
+.center-element-25-top{
+    margin-top: 25%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.center-element-20-top{
+    margin-top: 20%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.center-element-50-top{
+    margin-top: 50%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ .active{
+    color:$stile-green;
+    display: inline-block; 
+
+    
+}
+.inactive{
+    color:$stile-gray-white;
+    display: inline-block
+}
+.fiveTopSpace{
+    margin-top:5%
+}
+.blackButton-searchbar-combination{
+ //   margin-right:5%;
+ //   margin-top:10%
+}
+.tenTopSpace{
+    margin-top:10%
+}
+.tenLeftSpace{
+    margin-left:10%
+}
+.red{
+    color:$stile-red;
+}
+
+
+//.bottomCaption{
+ //   margin-top:35%;
+ //   display:flex;
+ //   align-items: center;
+//    justify-content: center;
+//}
+.pageLayoutStandard{
+    display: block;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.pageLayoutGray{
+    display: block;
+    background-color: $stile-light-gray;
+    overflow-y: scroll;
+}
+//.ion-card{
+//    margin-top:-5%;
+//}
+.goldColor{
+    color: $stile-gold;
+}
+ion-content {
+    // overwrite inline styles
+ //  --offset-bottom: auto!important;
+  //  --overflow: hidden;
+ //   overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+.mediumGrayCaption1{
+    color:$stile-medium-gray;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 22px;
+}
+.center-button{
+    text-align: center;
+ }
+ .readNotification{
+     background-color: $stile-light-gray;
+     color: gray;
+ }
+ .pageLayoutMargin{
+     display: block;
+     margin-top: 6%;
+ }
+
+.swiper-pagination{
+    position: inherit;
+    margin-top: 10px;
+  }
+  .swiper-container-horizontal > .swiper-pagination {
+//bottom: 0;
+  } 
+  .swiper-container-horizontal > .swiper-pagination  > .swiper-pagination-bullet-active{
+    background: #136466;
+    width: 18px;
+    height: 9px;
+    border-radius: 10px;
+  }
+  .swiper-pagination-bullet{
+    background: #E0E0E0;
+    height: 9px;
+    width: 9px;
+    opacity: 1;
+  }
+/*  ion-tab-button {
+    --color:red;
+    --color-selected: red;
+  
+    &::before {
+      background-color: transparent;
+      display: block;
+      content: "";
+      margin: 0 auto;
+      width: 20px;
+      height: 2px;
+    }
+  
+    &.tab-selected::before {
+      background-color: green;
+    }
+  }*/
+  .title{
+      margin-top: 10px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 22px;
+ 
+}
+  ion-footer ion-toolbar:first-of-type { 
+    padding-top: 12px;
+    border-radius: 12px;
+    z-index: 100;
+    box-shadow: 0px -10px 20px 0px rgb(0 0 0 / 25%);
+}
+
+
+
+ion-accordion {
+    div{
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}
+
+
+ion-tabs{
+    display: contents !important;
+}
+
+.outfitSearchbar{
+    margin-top:5%;
+    padding-bottom:3%;
+}
+.check{
+    height: 20px;
+}
+
+.tryButton{
+  
+    --background:#006466;
+    --background-activated:#006466;
+}
+.item-options-ios.item-options-end {
+    border-bottom-width: 0px;
+}
+ion-footer{
+    position: fixed;
+    bottom: 0;
+}
+/*.inner-scroll{
+    color: #000 !important;
+    display: content !important;
+}*/
+.searchbar-input.sc-ion-searchbar-md {
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-position: left 8px center;
+    height: auto;
+    font-size: 16px;
+    font-weight: 400;
+    --line-height: 35px;
+}
+.p-8{
+    padding-bottom: 80px;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+.cloth-item{
+    margin: 0px;
+  //  border: 1px rgb(0 0 0 / 8%) solid !important;
+  box-shadow: 0px 8px 10px rgb(65 65 56 / 14%) !important;
+   // box-shadow: none !important;
+    text-align: -webkit-center;
+}
+
+.header-translucent-ios ion-toolbar{
+    --background: #fff;
+   
+    opacity: 1; 
+}
+ion-header{
+    display: inherit !important;
+}
+
+
+.searchbar-search-icon.sc-ion-searchbar-ios{
+    display: none;
+}
+
+.searchbar-clear-icon.sc-ion-searchbar-ios {
+    width: 24px;
+    color: #136466;
+}
+.searchbar-left-aligned.sc-ion-searchbar-ios-h .searchbar-input.sc-ion-searchbar-ios {
+    padding-left: 10px;
+    padding-right: 0;
+}
+@keyframes animate {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+
+
+.alert-message.sc-ion-alert-ios:empty{
+    display: none;
+}
+.alert-head.sc-ion-alert-ios{
+    display: none;
+}
+.alert-message.sc-ion-alert-ios {
+    padding: 0;
+    display: block;
+    padding: 10%;
+    text-align: center;
+    font-size: 17px;
+    font-family: 'Open sans';
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+ion-content{
+    --background: #fff !important;
+}
+.native-input[disabled] {
+    opacity: 0.9 !important;
+}
+.segment-button-disabled{
+    opacity: 0.9 !important;
+}
+
+
+
+
+
+element.style {
+}
+.pageTitle[_ngcontent-fbc-c190] .welcome[_ngcontent-fbc-c190] {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 41px;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+.menu-content-open{
+    pointer-events: all !important;
+}

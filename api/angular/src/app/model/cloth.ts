@@ -1,0 +1,30 @@
+export class Cloth {
+    id:number;
+    name:String;
+    color:{
+        id:number;
+        name:string;
+    }
+    imgUri:any;
+    price:number;
+    reviewCount:number;
+    totalStars:number;
+    discount:number;
+    quantity:number;
+    specialFeatures:{
+        name:string;
+        imgUri:any;
+    }
+    brand:{
+        id:number;
+    }
+    category:{
+        id:number;
+    }
+    shop:{
+        id:number;
+        name:String;
+        address:String;
+    }
+    favorited:boolean;
+}

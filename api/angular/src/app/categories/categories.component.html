@@ -1,0 +1,49 @@
+<ion-content fullscreen style="overflow-y: scroll;" class="pageLayoutGray">
+  <div>
+   
+      <ion-row class="header-category">
+        <ion-col  size="4" class="">
+          <ion-icon name="grid" class="categorySVG" (click)="backClicked()"></ion-icon>
+        </ion-col>
+        <ion-col  size="7"  class="sub-header-left">
+          <!--  <img src="../../assets/notif.svg" class="Notification">--> 
+       <img src="../../assets/notif_active.svg" >
+        </ion-col>
+      </ion-row>
+
+      <h1 class="title">Category</h1>
+
+      <div class="blackButton-searchbar-combination px-2">
+        <div class="d-flex align-items-center bd-highlight">
+          <div class=" w-100 bd-highlight">
+            <ion-searchbar mode="md" class="searchbar" [(ngModel)]="searchTerm" (ionInput)="searchCategory($event)" (ionClear)="resetChanges()" autofocus animated></ion-searchbar>
+          </div>
+          <div class="p-2 flex-shrink-1 bd-highlight">
+            <ion-button mode="ios" class="blackSquare" (click)="OpenModel()">
+              <img src="../../assets/icon/Filter.svg" class="btns">
+            </ion-button>
+          </div>
+        </div>
+      </div>
+
+    <ion-grid>
+      <ion-row no-padding class="pb-3">
+        <ion-col col-6 size="6" *ngFor="let category of searchedItem" class="mb-2">
+
+          <ion-card mode="ios" class="m-0">
+            <div>
+            <img [src]="category.imgUri" class="center-element" (click)="navigateCategory(category.id)">
+          </div>
+            <ion-card-content>
+              <h2 class="center-element">{{category.name}}</h2>
+              <h5 class="center-element">{{category.count}}</h5>
+            </ion-card-content>
+          </ion-card>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<app-menubar></app-menubar>

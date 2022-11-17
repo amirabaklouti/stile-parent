@@ -1,0 +1,36 @@
+  <!--<ion-row>
+    <ion-col size="4" class="category">
+      <ion-icon name="ellipsis-vertical"></ion-icon>
+    </ion-col>
+-  <ion-col></ion-col> -->
+     <!-- <ion-col size="7" class="profile_notifications">
+
+           <ion-icon name="alert-circle-outline" [ngClass]="alertService.notificationRead? 'notification' : 'goldNotification'" (click)="OpenModel()">
+        </ion-icon>
+   
+   
+      
+      <img src="../../assets/icon/profile.png" class="profile">
+    </ion-col>
+  </ion-row>-->
+  
+  
+  <ion-row class="head "> 
+  <ion-col size="2" class="side-menu">
+        <ion-menu-button>
+           <ion-icon name="ellipsis-vertical"></ion-icon> 
+        </ion-menu-button>
+      </ion-col>
+        <ion-col size="10" class="profile_notifications">
+
+      <!--  <ion-icon name="alert-circle-outline" [ngClass]="alertService.notificationRead? 'notification' : 'goldNotification'" (click)="OpenModel()">
+       </ion-icon> -->
+       <img _ngcontent-ona-c163="" src="../../assets/notif_active.svg" [ngClass]="alertService.notificationRead? 'notification' : 'goldNotification'" (click)="OpenModel()">
+       
+     <img  routerLink="/profile" src="{{ imgUri ? imgUri : '../../assets/defaultImg.png' }}"  class="profile">
+   </ion-col>
+
+   
+  </ion-row>  
+   
+

@@ -1,0 +1,114 @@
+
+
+  <ion-menu   (ionOpen)="menuOpened()" (ionClose)="menuClosed()" [disabled]="router.url == '/login' &&  router.url == '/signup'" menuId="menu" contentId="main-content" type="overlay" >
+    <ion-content>
+
+      <ion-list id="inbox-list" >
+        <img src="{{ profileImgSide ? profileImgSide : '../../assets/defaultImg.png' }}" class="profile-img">
+        <ion-list-header>{{username}}</ion-list-header>
+        
+      <ion-menu-toggle>
+        <ion-note routerLink="/profile" >View profile</ion-note>
+      </ion-menu-toggle>
+     <!--   <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+          <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
+            <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+            <ion-label>{{ p.title }}</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+
+           <ion-row class="d-flex align-items-center sidedrop">
+          <ion-col size="3" class="d-flex justify-content-center"><ion-icon name="archive-outline"></ion-icon></ion-col>
+          <ion-col >Inbox</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="3" class="d-flex justify-content-center"><ion-icon name="send-outline"></ion-icon></ion-col>
+          <ion-col >Outbox</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="3" class="d-flex justify-content-center"> <img src="../assets/Star.svg"></ion-col>
+          <ion-col class="items" routerLink="/Favorites">Favorites</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="3" class="d-flex justify-content-center"> <img src="../assets/items.svg" ></ion-col>
+          <ion-col class="items" routerLink="/wardrobe">Wardrobe</ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="3" class="d-flex justify-content-center"> <img src="../assets/collection.svg" ></ion-col>
+          <ion-col class="items" routerLink="/collection">Collection</ion-col>
+        </ion-row>-->
+
+      <ion-menu-toggle>
+        <ion-item menuClose href="#" lines="none" disabled>
+          <ion-label>
+            Inbox
+          </ion-label>
+           <ion-icon slot="start" name="archive-outline"></ion-icon>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle>
+        <ion-item menuClose href="#" lines="none" disabled>
+          <ion-label>
+            Outbox
+          </ion-label>
+           <ion-icon slot="start" name="send-outline"></ion-icon>
+        </ion-item>
+      </ion-menu-toggle>
+
+      <ion-menu-toggle>
+<ion-item menuClose routerLink="/bookmarks" lines="none">
+  <ion-label>
+    Favorites
+  </ion-label>
+  <img slot="start" src="../assets/Star.svg" >
+</ion-item>
+</ion-menu-toggle>
+
+<ion-menu-toggle>
+<ion-item menuClose routerLink="/wardrobe" lines="none">
+  <ion-label>
+    Wardrobe
+  </ion-label>
+  <img slot="start" src="../assets/items.svg" >
+</ion-item>
+</ion-menu-toggle>
+
+<ion-menu-toggle>
+<ion-item menuClose routerLink="/collection"  lines="none">
+  <ion-label>
+    Collection
+  </ion-label>
+  <img slot="start" src="../assets/collection.svg" >
+</ion-item>
+</ion-menu-toggle>
+
+
+
+<ion-menu-toggle>
+<ion-item routerLink="/settings"  lines="none">
+  <ion-label>
+    Settings
+  </ion-label>
+  <ion-icon slot="start" name="settings-outline"></ion-icon>
+
+</ion-item>
+</ion-menu-toggle>
+      </ion-list>
+  <ion-list>
+    <ion-menu-toggle>
+      <ion-item (click)="logOut()" lines="none">
+        <ion-label>
+          Logout
+        </ion-label>
+        <ion-icon slot="start" name="log-out-outline"></ion-icon>
+      </ion-item>
+      </ion-menu-toggle>
+  </ion-list>
+    </ion-content>
+  </ion-menu>

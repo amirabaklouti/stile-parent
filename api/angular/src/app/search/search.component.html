@@ -1,0 +1,115 @@
+<ion-content fullscreen class="pageLayoutGray" role="feed">
+ 
+
+
+    <!-- <app-header #header></app-header> -->
+ 
+      <ion-row class="justify-content-center">
+      <!--    <ion-col>
+          <ion-icon name="grid" class="category" routerLink="/categories"></ion-icon>
+        </ion-col> -->
+        <ion-col class="pageName">Search</ion-col>
+       <!--   <ion-col>
+          <img src="../../assets/icon/profile.png" class="profile">
+        </ion-col> -->
+      </ion-row>
+  
+    
+    <!--<div class="px-2 ">
+      <h1 class="title">Search</h1>
+    <div class="blackButton-searchbar-combination">
+      <div class="d-flex align-items-center bd-highlight">
+        <div class=" w-100 bd-highlight">
+          <ion-searchbar mode="md" class="searchbar" [(ngModel)]="searchTerm" (ionInput)="secondarySearchClothes($event)" (ionClear)="resetChanges()" animated></ion-searchbar>
+        </div>
+        <div class="p-2 flex-shrink-1 bd-highlight">
+          <ion-button mode="ios" class="blackSquare" (click)="OpenModel()">
+            <img src="../../assets/icon/Filter.svg" class="btns">
+          </ion-button>
+        </div>
+      </div>
+    </div>-->
+  <!--  <div class="sort">
+      <ion-row>
+        <ion-col size="2">
+          <ion-label>Price :</ion-label>
+        </ion-col>
+        <ion-col size="5">
+          <ion-chip class="high" [outline]="lowtohigh">
+            <ion-label (click)="lowestToHighest()">Lowest to highest </ion-label>
+          </ion-chip>
+        </ion-col>
+        <ion-col size="5">
+          <ion-chip class="low" [outline]="hightolow">
+            <ion-label  (click)="highestToLowest()">Highest to lowest </ion-label>
+          </ion-chip>
+        </ion-col>
+    </ion-row>-->
+    
+   <!--   </div> -->
+
+<div>
+  <ion-row class="search">
+    <ion-col size="7" class="searchbar-container">
+      <ion-searchbar showClearButton="never" #mySearchbar autocomplete="on" spellcheck="true" autocorrect="on" mode="ios"  class="searchbar" (search)="navigateSearch()"   (ngModelChange)="onFocus()" [(ngModel)]="searchTerm"></ion-searchbar>
+    </ion-col>
+
+    <ion-col size="5" class="searchbar-button">
+   
+        <img class="filter " src="../../assets/greenLoop.svg" (click)="navigateSearch()">
+     
+        <img class="filter" src="../../assets/greenCamera.svg" routerLink="/search-image" >
+
+  <!--   <ion-button mode="ios" class="greenSquare" >--> 
+        <img class="filter" src="../../assets/greenFilter.svg" (click)="OpenModel()" >
+    </ion-col>
+  </ion-row>
+  <div *ngIf="didYouMean" class="didum">Did you mean <span class="suggested">{{didYouMean}}</span></div>
+  <div  class="searchList row justify-content-center" [hidden]="!clothSearched?.length" >
+    <div 
+    ngxInfiniteScroller
+    strategy="scrollingToDown"
+    (onScrollDown)="onScrollDown()" [ngStyle]="{'height':lengthItems === true ? '225px' : 'auto'}">
+     
+      <ion-list  mode="ios" *ngFor='let cloth of clothSearched'>
+          <ion-item mode="ios" lines="none" (click)="goTo(cloth.name)"  role="article" >{{cloth.name}}</ion-item>
+       </ion-list>
+     <ion-infinite-scroll [hidden]="page == totalPages || page > totalPages " mode="ios" threshold="30px"  [hidden]="!clothSearched?.length">
+        <ion-infinite-scroll-content position="bottom"  class="infinitScroll" mode="ios" loadingSpinner="bubbles"  [hidden]="!clothSearched?.length" ></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+  </div>
+   <!-- <ion-
+    grid class="bottom-margin"> 
+   
+    <div class="skeleton">
+      <div class="skeleton__block"></div>
+      <div class="skeleton__block"></div>
+      <div class="skeleton__block"></div>
+    </div>-->
+
+    
+    <div  
+    id="scroller"  ngxInfiniteScroller strategy="scrollingToDown" (onScrollUp)="onScrollUp()" (onScrollDown)="onScrollDown()"
+    >
+ 
+    
+    <ion-row role="article" class="cloths">
+
+      <ion-col *ngFor="let cloth of result">
+          <app-cloth-card (reload)="ngOnInit()" [item]="cloth" [result]="result"></app-cloth-card>
+        </ion-col>
+  
+       <!--<ion-infinite-scroll [hidden]="page == totalPages || page > totalPages " mode="ios" threshold="30px"  [hidden]="!clothSearched?.length">
+          <ion-infinite-scroll-content position="bottom"  class="infinitScroll" mode="ios" loadingSpinner="bubbles"  [hidden]="!clothSearched?.length" ></ion-infinite-scroll-content>
+        </ion-infinite-scroll>--> 
+      </ion-row>
+     
+    </div>
+      
+
+  <!--   </ion-grid> -->
+</div>
+</ion-content>
+
+<app-menubar></app-menubar>

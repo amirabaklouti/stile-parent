@@ -1,0 +1,333 @@
+<ion-content class="bg">
+
+  <div *ngIf="indx==0" class="backgr" >
+
+
+  <ion-row class="header pt-4 mb-4 align-items-center">
+   <ion-col size="2" class="d-flex justify-content-end">
+      <ion-icon name="chevron-back-outline" (click)="backClicked()"></ion-icon>
+    </ion-col>
+    <ion-col size="8" class="d-flex justify-content-center">
+      <p class="cartText">Shopping Cart</p>
+    </ion-col>
+     <ion-col size="2" class="cart d-flex justify-content-start">
+    <!--  <ion-icon name="ellipsis-vertical"></ion-icon>--> 
+    </ion-col>
+  </ion-row>
+
+
+
+  <div >
+  <ion-item-sliding  id="e{{clothes.id}}"  mode="ios" lines="none" id="item100"  *ngFor="let clothes of clothesToBuy"  >
+    <ion-row  >
+      <ion-item lines="none" class="item">
+        <ion-row>
+
+          <ion-col size="4" >
+            <img class="productImg" src={{clothes.imgUri}}>
+          </ion-col>
+          <ion-col size="6" class="card-container d-flex justify-content-start">
+            <p class="productText">{{clothes.name}}</p>
+            <p class="productSubText">{{clothes.shop.name}}</p>
+            <p class="productPrice">{{clothes.sum}} USD</p>
+          </ion-col>
+          <ion-col size="2" class=" numberProduct d-flex justify-content-start">
+            <p class="productNumberText">x{{clothes.count}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item-options mode="ios" side="start" [id]=clothes.id (click)="deleteClothFrom(clothes)" >
+        <ion-item-option class="start" >
+          <img class=""  src="../../assets/Delete.svg">
+        </ion-item-option>
+      </ion-item-options>
+      <ion-item-options class="align-items-center" mode="ios" side="end">
+        <ion-item-option class="end">
+          <div class="optionEnd">
+            <ion-icon (click)="clothesMinus(clothes)" class="p-3 color" name="remove-outline"></ion-icon>
+            <span class="option">{{clothes.count}}</span>
+            <ion-icon (click)="clothesPlus(clothes)"  class="p-3 color" name="add-outline"></ion-icon>
+          </div>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-row>
+  </ion-item-sliding>
+</div>
+
+
+<div class="showAll" *ngIf="somme <= 0">
+<p  class="noClothes">You have no Clothes in the cart !</p>
+</div>
+
+
+
+  <ion-footer class="footer" *ngIf="somme > 0">
+    <ion-toolbar class="center-button">
+    <div class="p-2">
+    <ion-row >
+      <ion-col class="d-flex justify-content-start checkout " size="8">Suttotal</ion-col>
+      <ion-col class="d-flex justify-content-end prices " size="4">{{somme}} &nbsp;USD</ion-col>
+    </ion-row>
+ <!--  <ion-row>
+      <ion-col class="d-flex justify-content-start checkout "  size="8">Discount</ion-col>
+      <ion-col  class="d-flex justify-content-end prices "size="4">20%</ion-col>
+    </ion-row>--> 
+    <ion-row>
+      <ion-col class="d-flex justify-content-start checkout2 "  size="8">Shipping</ion-col>
+      <ion-col  class="d-flex justify-content-end prices " size="4">24 &nbsp;USD</ion-col>
+
+    </ion-row>
+    <img class="" src="../../assets/br.svg">
+
+    <ion-row>
+      <ion-col class="d-flex justify-content-start total1 "  size="8">Total</ion-col>
+      <ion-col class="d-flex justify-content-end total2 "size="4">{{total}} &nbsp; USD</ion-col>
+    </ion-row>
+  </div> 
+<div class="btn-to-checkout">
+    <ion-button mode="ios" class="tryButton d-block" (click)="next()">Proceed to checkout</ion-button>
+  </div>
+  </ion-toolbar>
+  </ion-footer>
+</div>
+
+<div *ngIf="indx==1" class="backgr" >
+  <ion-row class="header mt-4 mb-4 align-items-center">
+    <ion-col size="2" class="d-flex justify-content-end">
+      <ion-icon name="chevron-back-outline" (click)="previous()"></ion-icon>
+    </ion-col>
+    <ion-col size="8" class="d-flex justify-content-center">
+      <p class="cartText">Shopping Adress</p>
+    </ion-col>
+    <ion-col size="2" class="cart d-flex justify-content-start">
+      <ion-icon name="ellipsis-vertical"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-card mode="ios" class="adress">
+    <ion-card-header>
+      <ion-item lines="none">
+        <img  src="../../assets/coolicon.svg" class="map-icon">
+        <div class="names">
+        <ion-label class="adress-name">Home Address</ion-label>
+        <ion-label class="adress-sub-name">123 new york city, 12 road</ion-label>
+      </div>
+        <ion-checkbox mode="ios"  slot="end"></ion-checkbox>
+      </ion-item>
+    </ion-card-header>
+<div class="barre"></div>
+    <ion-card-content>
+    <div class="content">
+   <img src="../../assets/map.png">
+  </div>
+    </ion-card-content>
+ 
+  </ion-card>
+
+
+  <ion-card mode="ios" class="adress">
+    <ion-card-header>
+      <ion-item lines="none">
+        <img  src="../../assets/coolicon.svg" class="map-icon">
+        <div class="names">
+        <ion-label class="adress-name">Work Address</ion-label>
+        <ion-label class="adress-sub-name">123 new york city, 12 road</ion-label>
+      </div>
+        <ion-checkbox mode="ios"  slot="end"></ion-checkbox>
+      </ion-item>
+    </ion-card-header>
+<div class="barre"></div>
+    <ion-card-content>
+    <div class="content">
+   <img src="../../assets/map.png">
+  </div>
+    </ion-card-content>
+ 
+  </ion-card>
+
+  <ion-card mode="ios" class="adress">
+    <ion-card-header>
+      <ion-item lines="none">
+        <img  src="../../assets/coolicon.svg" class="map-icon">
+        <div class="names">
+        <ion-label class="adress-name">Add Address</ion-label>
+        <ion-label class="adress-sub-name">Add The Shipping Adress</ion-label>
+      </div>
+      <img slot="end" src="../../assets/refresh.svg" class="icon-refresh">
+      </ion-item>
+    </ion-card-header>
+<div class="barre"></div>
+    <ion-card-content>
+    <div class="content">
+   <img src="../../assets/addAdress.svg">
+  </div>
+    </ion-card-content>
+ 
+  </ion-card>
+<div class="btn-to-payment">
+    <ion-button mode="ios" (click)="next()"  >Continue to payment</ion-button>
+</div>
+</div>
+
+
+
+
+
+
+<div *ngIf="indx==2" class="backgr" >
+
+
+  <ion-row class="header mt-4 mb-4 align-items-center">
+    <ion-col size="2" class="d-flex justify-content-end">
+      <ion-icon name="chevron-back-outline" (click)="backClicked()"></ion-icon>
+    </ion-col>
+    <ion-col size="8" class="d-flex justify-content-center">
+      <p class="cartText">Payment method</p>
+    </ion-col>
+    <ion-col size="2" class="cart d-flex justify-content-start">
+      <ion-icon name="ellipsis-vertical"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+  <label class="pay-title">Payment</label>
+  <ion-card mode="ios" class="pay">
+      <ion-item lines="none">
+        <img  src="../../assets/icon.svg" class="map-icon">
+        <ion-label class="adress-name">Google Pay</ion-label>
+        <ion-checkbox mode="ios"  slot="end"></ion-checkbox>
+      </ion-item>
+  </ion-card>
+
+
+  <ion-card mode="ios" class="pay">
+    <ion-item lines="none">
+      <img  src="../../assets/paypal.svg" class="map-icon">
+      <ion-label class="adress-name">PayPal</ion-label>
+      <ion-checkbox mode="ios"  slot="end"></ion-checkbox>
+    </ion-item>
+</ion-card>
+
+
+<ion-card mode="ios" class="pay">
+  <ion-item lines="none">
+    <img  src="../../assets/mastercard.svg" class="map-icon">
+    <ion-label class="adress-name">Mastercard</ion-label>
+    <ion-checkbox mode="ios"  slot="end"></ion-checkbox>
+  </ion-item>
+</ion-card>
+
+
+
+<ion-card mode="ios" class="pay">
+  <ion-item lines="none">
+    <img  src="../../assets/apple.svg" class="map-icon">
+    <ion-label class="adress-name">Apple Pay</ion-label>
+    <ion-checkbox mode="ios"  slot="end"></ion-checkbox>
+  </ion-item>
+</ion-card>
+<ion-card mode="ios" class="pay">
+  <ion-item lines="none">
+    <img  src="../../assets/cash.svg" class="map-icon">
+    <ion-label class="adress-name">Cash on delivery</ion-label>
+    <ion-checkbox mode="ios"  slot="end"></ion-checkbox>
+  </ion-item>
+</ion-card>
+
+<ion-row class="btn-to-method">
+  <ion-col size="3"><ion-button mode="ios" (click)="previous()"><ion-icon name="chevron-back-outline" ></ion-icon></ion-button></ion-col>
+  <ion-col size="9"><ion-button mode="ios" (click)="next()"  >Confirm</ion-button></ion-col>
+  
+</ion-row>
+</div>
+
+
+
+
+<div *ngIf="indx==3" class="backgr" >
+  <ion-row class="header mt-4 mb-4 align-items-center">
+    <ion-col size="2" class="d-flex justify-content-end">
+      <ion-icon name="chevron-back-outline" (click)="backClicked()"></ion-icon>
+    </ion-col>
+    <ion-col size="8" class="d-flex justify-content-center">
+      <p class="cartText">Payment details</p>
+    </ion-col>
+    <ion-col size="2" class="cart d-flex justify-content-start">
+      <ion-icon name="ellipsis-vertical"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+  <div style="display: block;margin: auto;">
+    <img  src="../../assets/dd.svg" style="margin-left: 4%;" >
+  </div>
+  
+
+  <label class="pay-title">Card Details</label>
+  
+  <ion-row lines="none" class="d-block">
+  <ion-item class="cardInput" size="10" lines="none">
+    <img class="payInputImg" slot="start" src="../../assets/profileGris.svg" >
+    <ion-input mode="ios" class="pay-input"  placeholder="Holder name"></ion-input>
+  </ion-item>     
+  </ion-row>
+
+  <ion-row lines="none" class="d-block">
+    <ion-item class="cardInput" size="10" lines="none">
+      <img class="payInputImg" slot="start" src="../../assets/cardGris.svg" >
+      <ion-input mode="ios" class="pay-input"  placeholder="Card number"></ion-input>
+    </ion-item>     
+    </ion-row>
+
+    <ion-row lines="none" class="inputInline">
+
+        <ion-item  size="6" class="cardInput" lines="none">
+          <img class="payInputImg" slot="start" src="../../assets/calenderGris.svg" >
+          <ion-input mode="ios" class="pay-input"  placeholder="MM/YY"></ion-input>
+        </ion-item> 
+
+        <ion-item size="6" class="cardInput" lines="none">
+          <img class="payInputImg" slot="start" src="../../assets/lockGris.svg" >
+          <ion-input mode="ios" class="pay-input"  placeholder="CVV"></ion-input>
+        </ion-item> 
+
+      </ion-row>
+
+
+        <ion-row lines="none" class="d-block">
+          <ion-item class="cardInput" size="10" lines="none">
+            <img class="payInputImg" slot="start" src="../../assets/couponGris.svg" >
+            <ion-input mode="ios" class="pay-input"  placeholder="coupon/ promo code"></ion-input>
+          </ion-item>     
+          </ion-row>
+
+   
+        
+
+          <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+            <ng-template>
+              <div>
+              <ion-content class="ion-padding">
+                <div  class="d-flex  justify-content-center ">
+                      <img class="mt-4" height="100" width="100" src="../../assets/done.svg" >
+                </div>
+            
+                <p class="msgTy">Thank you!</p>
+
+                <p class="msg">Your order is completed. Please 
+            check the delivery status at order
+            tracking page.</p>
+            <ion-button class="msgBtn" mode="ios">Ok</ion-button>
+              </ion-content>
+            </div>
+            </ng-template>
+          </ion-modal>
+
+  
+<ion-row class="btn-to-method">
+  <ion-col size="3"><ion-button mode="ios" (click)="previous()"><ion-icon name="chevron-back-outline" ></ion-icon></ion-button></ion-col>
+  <ion-col size="9"><ion-button mode="ios" id="open-modal" (click)="pay()"  >Confirm</ion-button></ion-col>
+</ion-row>
+</div>
+
+
+</ion-content>
