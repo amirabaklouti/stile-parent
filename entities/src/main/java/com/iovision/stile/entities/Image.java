@@ -13,7 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "image", schema="public")
+@Table(name = "image")
 public class Image implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id

@@ -22,7 +22,8 @@ public interface ClothRepository extends JpaRepository<Cloth, Long> {
 
 	@Query("select c from Cloth c")
 	Set<Cloth> getClothes();
-
+	
+	@Query("select c from Cloth c where c.id = :id")
 	Cloth findById(Integer id);
 
 	Set<Cloth> findByPriceBetween(float min, float max);

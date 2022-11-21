@@ -13,7 +13,6 @@
 		<dependency>
 			<groupId>com.iovision.stile</groupId>
 			<artifactId>jdbc-repo</artifactId>
-			<version>1.0.0</version>
 		</dependency>
 
 		<dependency>

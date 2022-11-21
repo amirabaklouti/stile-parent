@@ -8,7 +8,7 @@ import javax.persistence.*;
 import org.springframework.data.elasticsearch.annotations.Field;
 
 @Entity
-@Table(name = "cloth", schema="public")
+@Table(name = "cloth")
 public class Cloth implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -18,9 +18,15 @@ public class Cloth implements Serializable {
 	private String name;
 	
 	
+	
 	private float price;
+	
+	@Column(name="review_count")
 	private float reviewCount;
+	
+	@Column(name="total_stars")
 	private float totalStars;
+	
 	private Integer discount;
 	private Integer quantity;
 	
@@ -89,11 +95,9 @@ public class Cloth implements Serializable {
 		return this.name;
 	}
 	
-	@Column(name="review_count")
 	public float getReviewCount() {
 		return this.reviewCount;
 	}
-	@Column(name="total_stars")
 	public float getTotalStars() {
 		return this.totalStars;
 	}

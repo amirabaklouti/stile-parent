@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "alert", schema="public")
+@Table(name = "alert")
 public class Alert implements Serializable {
 	/**
 	 * 

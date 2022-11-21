@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 22 22">
-  <rect width="22" height="22" fill="#006466" rx="11"/>
-  <path stroke="#130F26" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m4.063 4.438 1.56.27.722 8.604a1.35 1.35 0 0 0 1.35 1.24h8.182a1.35 1.35 0 0 0 1.338-1.16l.712-4.918c.08-.55-.302-1.06-.851-1.14-.048-.006-11.203-.01-11.203-.01m6.721 2.772h2.08"/>
-  <path fill="#130F26" fill-rule="evenodd" stroke="#130F26" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.366 17.152a.408.408 0 1 1 0 .816.408.408 0 0 1 0-.816Zm8.46 0a.409.409 0 1 1 0 .817.409.409 0 0 1 0-.817Z" clip-rule="evenodd"/>
-</svg>

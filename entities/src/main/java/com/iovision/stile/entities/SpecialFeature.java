@@ -6,7 +6,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "special_feature", schema="public")
+@Table(name = "special_feature")
 public class SpecialFeature implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;

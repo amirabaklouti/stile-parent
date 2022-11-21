@@ -6,7 +6,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "category", schema="public")
+@Table(name = "category")
 public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;

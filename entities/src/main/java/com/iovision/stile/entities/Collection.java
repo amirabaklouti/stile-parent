@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @Entity
-@Table(name = "collection", schema="public")
+@Table(name = "collection")
 public class Collection {
 
 	

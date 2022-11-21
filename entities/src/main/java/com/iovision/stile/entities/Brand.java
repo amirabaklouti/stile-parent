@@ -6,7 +6,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "brand", schema="public")
+@Table(name = "brand")
 public class Brand implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;

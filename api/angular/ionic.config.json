@@ -1,8 +1,0 @@
-{
-  "name": "stile",
-  "integrations": {
-    "capacitor": {},
-    "cordova": {}
-  },
-  "type": "angular"
-}

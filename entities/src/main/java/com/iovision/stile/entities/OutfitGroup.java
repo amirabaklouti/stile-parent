@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 //@JsonIgnoreProperties({"hibernateLazyInitializer"})
-@Table(name = "outfitgroup", schema="public")
+@Table(name = "outfitgroup")
 public class OutfitGroup {
 	
 	private static final long serialVersionUID = 1L;
